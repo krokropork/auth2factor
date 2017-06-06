@@ -38,17 +38,9 @@ public class Auth2FactorRepositoryTest {
         System.out.println("QRcode : " + auth2FactorRepository.readQRCode("D:/a.png",hintMap));
 
         String lastCode = null;
-        while (true) {
-            String code = auth2FactorRepository.genOTPCode(key);
-            if (!code.equals(lastCode)) {
-                // output a new 6 digit code
-                System.out.println(code);
-            }
-            lastCode = code;
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {};
-        }
+        String code = auth2FactorRepository.genOTPCode(key);
+        System.out.println(code);
+
 
     }
 
