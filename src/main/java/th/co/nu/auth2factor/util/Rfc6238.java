@@ -76,7 +76,6 @@ public class Rfc6238 {
         return generateTOTP(key, time, returnDigits, "HmacSHA512");
     }
 
-
     public  String generateTOTP(String key,
                                       String time,
                                       String returnDigits,
