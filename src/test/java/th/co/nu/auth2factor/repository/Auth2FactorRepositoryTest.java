@@ -2,6 +2,7 @@ package th.co.nu.auth2factor.repository;
 
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import org.apache.commons.codec.binary.Base32;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -49,7 +50,7 @@ public class Auth2FactorRepositoryTest {
 
     }
 
-    @Test
+    //@Test
     public void genCheckCode()throws Exception {
         Auth2FactorRepository auth2FactorRepository =   Auth2FactorRepository.getInstance();
         String lastCode = null;
@@ -59,6 +60,13 @@ public class Auth2FactorRepositoryTest {
         System.out.println(code);
     }
 
+    @Test
+    public void String32(){
+        Auth2FactorRepository auth2FactorRepository =   Auth2FactorRepository.getInstance();
+        String s = auth2FactorRepository.encodeToString32("15");
+        System.out.println(s);
+        System.out.println(auth2FactorRepository.decodeToString32(s));
+    }
 
 
         @After

@@ -33,6 +33,19 @@ public class Auth2FactorRepository {
 
     }
 
+    public String encodeToString32(String s){
+        Base32 base32 = new Base32();
+        String secretKey = base32.encodeToString(s.getBytes());
+        return secretKey;
+    }
+
+    public String decodeToString32(String s){
+        Base32 base32 = new Base32();
+        String secretKey = new String(base32.decode(s.getBytes()));
+        return secretKey;
+    }
+
+
     public String genSecretKey(){
         SecureRandom random = new SecureRandom();
         byte[] bytes = new byte[20];
